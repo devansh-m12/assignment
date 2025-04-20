@@ -1,0 +1,41 @@
+# Compiled files
+*.o
+*.so
+*.a
+*.pyc
+*.pyo
+__pycache__/
+*.out
+
+# Build directories
+build/
+dist/
+bin/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Dependency directories
+node_modules/
+venv/
+env/
+.env/
+.venv/
+
+# Log files
+*.log
+logs/
+
+# Generated files
+generated/
+*.pb.h
+*.pb.cc
+*.pb.c
+
+# Local configuration files
+*.local
+config.local.* 

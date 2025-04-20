@@ -1,0 +1,19 @@
+// Global options for all messages
+* max_size:512
+
+// Authentication messages
+AuthenticationRequest.serial_id max_size:32
+AuthenticationRequest.signature max_size:64
+
+ServerChallenge.random_number max_size:32
+ServerChallenge.signature max_size:64
+
+ClientChallengeResponse.random_number max_size:32
+ClientChallengeResponse.signature max_size:64
+
+// Service messages for Correlated Oblivious Transfer
+CotInitMessage.multiplicative_share max_size:8
+CotResponseMessage.additive_share max_size:8
+
+// Custom text message
+CustomTextMessage.text max_size:256 

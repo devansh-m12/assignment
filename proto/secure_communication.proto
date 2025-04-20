@@ -1,0 +1,52 @@
+syntax = "proto2";
+
+// Authentication messages
+message AuthenticationRequest {
+    required bytes serial_id = 1;
+    required bytes signature = 2;
+}
+
+message ServerChallenge {
+    required bytes random_number = 1;
+    required bytes signature = 2;
+}
+
+message ClientChallengeResponse {
+    required bytes random_number = 1;
+    required bytes signature = 2;
+}
+
+// Service messages for Correlated Oblivious Transfer
+message CotInitMessage {
+    required bytes multiplicative_share = 1;
+}
+
+message CotResponseMessage {
+    required bytes additive_share = 1;
+}
+
+// Custom text message for simple communication
+message CustomTextMessage {
+    required string text = 1;
+}
+
+// Wrapper message to handle different message types
+message SecureMessage {
+    enum MessageType {
+        AUTH_REQUEST = 1;
+        SERVER_CHALLENGE = 2;
+        CLIENT_CHALLENGE_RESPONSE = 3;
+        COT_INIT = 4;
+        COT_RESPONSE = 5;
+        CUSTOM_TEXT = 6;
+    }
+    
+    required MessageType message_type = 1;
+    
+    optional AuthenticationRequest auth_request = 2;
+    optional ServerChallenge server_challenge = 3;
+    optional ClientChallengeResponse client_challenge_response = 4;
+    optional CotInitMessage cot_init = 5;
+    optional CotResponseMessage cot_response = 6;
+    optional CustomTextMessage custom_text = 7;
+} 
